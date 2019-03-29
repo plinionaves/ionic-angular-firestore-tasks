@@ -1,11 +1,22 @@
 <ion-content padding>
   <h1 text-center>
-    <ion-icon name="done-all" color="primary" class="icon-7em"></ion-icon>
+    <ion-icon
+      name="done-all"
+      color="primary"
+      class="icon-7em"
+    ></ion-icon>
   </h1>
 
-  <form [formGroup]="authForm" (submit)="onSubmit()">
+  <form
+    [formGroup]="authForm"
+    (submit)="onSubmit()"
+  >
     <ion-item>
-      <ion-icon name="mail" color="primary" slot="start"></ion-icon>
+      <ion-icon
+        name="mail"
+        color="primary"
+        slot="start"
+      ></ion-icon>
       <ion-input
         type="email"
         placeholder="Email"
@@ -13,31 +24,69 @@
         inputmode="email"
         autofocus="true"
       ></ion-input>
-      <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('required')"
-        >Required</ion-note
+      <ion-note
+        slot="end"
+        color="danger"
+        *ngIf="email.dirty && email.hasError('required')"
       >
-      <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('email')"
-        >Invalid email</ion-note
+        Required
+      </ion-note>
+      <ion-note
+        slot="end"
+        color="danger"
+        *ngIf="email.dirty && email.hasError('email')"
       >
+        Invalid email
+      </ion-note>
     </ion-item>
 
     <ion-item>
-      <ion-icon name="lock" color="primary" slot="start"></ion-icon>
-      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-      <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('required')"
-        >Required</ion-note
+      <ion-icon
+        name="lock"
+        color="primary"
+        slot="start"
+      ></ion-icon>
+      <ion-input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      ></ion-input>
+      <ion-note
+        slot="end"
+        color="danger"
+        *ngIf="password.dirty && password.hasError('required')"
       >
-      <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('minlength')"
-        >Min 6 characters</ion-note
+        Required
+      </ion-note>
+      <ion-note
+        slot="end"
+        color="danger"
+        *ngIf="password.dirty && password.hasError('minlength')"
       >
+        Min 6 characters
+      </ion-note>
     </ion-item>
 
-    <ion-button expand="block" type="submit" [disabled]="authForm.invalid">Login</ion-button>
+    <ion-button
+      expand="block"
+      type="submit"
+      [disabled]="authForm.invalid"
+    >
+      Login
+    </ion-button>
   </form>
 
-  <ion-button expand="block" fill="clear">Create account</ion-button>
+  <ion-button
+    expand="block"
+    fill="clear"
+  >
+    Create account
+  </ion-button>
   <ion-button expand="block">
-    <ion-icon name="logo-facebook" slot="start"></ion-icon>
+    <ion-icon
+      name="logo-facebook"
+      slot="start"
+    ></ion-icon>
     Login with Facebook
   </ion-button>
 </ion-content>
