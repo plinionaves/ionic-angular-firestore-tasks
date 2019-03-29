@@ -3,17 +3,26 @@
     <ion-icon name="done-all" color="primary" class="icon-7em"></ion-icon>
   </h1>
 
-  <ion-item>
-    <ion-icon name="mail" color="primary" slot="start"></ion-icon>
-    <ion-input type="email" placeholder="Email" inputmode="email" autofocus="true"></ion-input>
-  </ion-item>
+  <form [formGroup]="authForm" (submit)="onSubmit()">
+    <ion-item>
+      <ion-icon name="mail" color="primary" slot="start"></ion-icon>
+      <ion-input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        inputmode="email"
+        autofocus="true"
+      ></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-icon name="lock" color="primary" slot="start"></ion-icon>
-    <ion-input type="password" placeholder="Password"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-icon name="lock" color="primary" slot="start"></ion-icon>
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
 
-  <ion-button expand="block">Login</ion-button>
+    <ion-button expand="block" type="submit" [disabled]="authForm.invalid">Login</ion-button>
+  </form>
+
   <ion-button expand="block" fill="clear">Create account</ion-button>
   <ion-button expand="block">
     <ion-icon name="logo-facebook" slot="start"></ion-icon>
