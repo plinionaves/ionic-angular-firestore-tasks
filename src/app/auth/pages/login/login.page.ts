@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
+import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthProvider } from 'src/app/core/services/auth.types';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -8,6 +11,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 })
 export class LoginPage implements OnInit {
   authForm: FormGroup;
+  authProviders = AuthProvider;
   configs = {
     isSignIn: true,
     action: 'Login',
@@ -15,7 +19,7 @@ export class LoginPage implements OnInit {
   };
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private authService: AuthService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -50,7 +54,17 @@ export class LoginPage implements OnInit {
       : this.authForm.removeControl('name');
   }
 
-  onSubmit(): void {
-    console.log('AuthForm: ', this.authForm.value);
+  async onSubmit(provider: AuthProvider): Promise<void> {
+    try {
+      const credentials = await this.authService.authenticate({
+        isSignIn: this.configs.isSignIn,
+        user: this.authForm.value,
+        provider
+      });
+      console.log('Authenticated: ', credentials);
+      console.log('Redirecting...');
+    } catch (e) {
+      console.log('Auth error: ', e);
+    }
   }
 }
