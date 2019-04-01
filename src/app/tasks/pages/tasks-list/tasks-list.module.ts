@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
-
+import { ComponentsModule } from '../../components/components.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { TasksListPage } from './tasks-list.page';
 
 const routes: Routes = [
@@ -15,12 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [SharedModule, ComponentsModule, RouterModule.forChild(routes)],
   declarations: [TasksListPage]
 })
 export class TasksListPageModule {}
