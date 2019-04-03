@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tasks"></ion-back-button>
     </ion-buttons>
-    <ion-title>Create Task</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,6 +26,12 @@
         formControlName="title"
       >
       </ion-input>
+      <ion-toggle
+        *ngIf="taskId"
+        slot="end"
+        color="primary"
+        formControlName="done"
+      ></ion-toggle>
     </ion-item>
     <ion-button
       expand="full"
