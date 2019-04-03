@@ -11,6 +11,7 @@
       <app-task-item
         *ngFor="let task of tasks"
         [task]="task"
+        (update)="onUpdate($event)"
       ></app-task-item>
     </ng-container>
     <ng-template #noTasks>
