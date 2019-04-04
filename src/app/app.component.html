@@ -10,18 +10,20 @@
 
     <ion-content>
       <ion-list>
-        <ion-item
-          button
-          *ngFor="let page of pages"
-          [routerLink]="page.url"
-          [routerDirection]="page.direction"
-        >
-          <ion-icon
-            slot="start"
-            [name]="page.icon"
-          ></ion-icon>
-          <ion-label>{{ page.text }}</ion-label>
-        </ion-item>
+        <ion-menu-toggle autoHide="false">
+          <ion-item
+            button
+            *ngFor="let page of pages"
+            [routerLink]="page.url"
+            [routerDirection]="page.direction"
+          >
+            <ion-icon
+              slot="start"
+              [name]="page.icon"
+            ></ion-icon>
+            <ion-label>{{ page.text }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
 
