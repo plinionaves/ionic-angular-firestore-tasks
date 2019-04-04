@@ -13,6 +13,7 @@
 
     <ion-content>
       <ion-list>
+        <ion-list-header *ngIf="user">{{ user.displayName }}</ion-list-header>
         <ion-menu-toggle autoHide="false">
           <ion-item
             button
