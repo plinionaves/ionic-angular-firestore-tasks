@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { Task } from '../../models/task.model';
@@ -20,8 +21,10 @@ export class TasksListPage implements OnInit {
     private tasksService: TasksService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const loading = await this.overlayService.loading();
     this.tasks$ = this.tasksService.getAll();
+    this.tasks$.pipe(take(1)).subscribe(tasks => loading.dismiss());
   }
 
   onUpdate(task: Task): void {
