@@ -1,3 +1,32 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu contentId="menu-content">
+
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item
+          button
+          *ngFor="let page of pages"
+          [routerLink]="page.url"
+          [routerDirection]="page.direction"
+        >
+          <ion-icon
+            slot="start"
+            [name]="page.icon"
+          ></ion-icon>
+          <ion-label>{{ page.text }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-router-outlet id="menu-content"></ion-router-outlet>
+
 </ion-app>
