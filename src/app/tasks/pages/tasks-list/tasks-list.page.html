@@ -13,6 +13,7 @@
         [task]="task"
         (update)="onUpdate($event)"
         (delete)="onDelete($event)"
+        (done)="onDone($event)"
       ></app-task-item>
     </ng-container>
     <ng-template #noTasks>
