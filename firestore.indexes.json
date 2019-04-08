@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "tasks",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "done",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "title",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
