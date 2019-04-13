@@ -24,7 +24,7 @@ Acesse o projeto aqui: [Ionic Firestore Tasks](https://ionic-firestore-tasks.fir
     - Toolbar
   - Outros
     - Grid
-    - Nagivation
+    - Navigation
     - SplitPane
 - Ionic CLI 4.x (+ Angular CLI)
   - Criar novos projetos
