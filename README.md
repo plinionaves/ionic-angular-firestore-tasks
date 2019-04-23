@@ -1,6 +1,6 @@
 # Ionic Angular Firestore Tasks
 
-Repositório do curso de Ionic + Angular + Firebase publicado na [Udemy](https://www.udemy.com/user/plinio-naves/)
+Repositório do curso de Ionic + Angular + Firebase publicado na [Udemy](https://www.udemy.com/ionic-angular-firebase-facebook/?couponCode=IONIC_COMMUNITY)
 
 ## Projeto finalizado
 
